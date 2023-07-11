@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="get_userlist" doc:id="3aefa9aa-dc3b-494e-9d29-36888509f8d6" >
+		<set-variable value="hari" doc:name="Set Variable" doc:id="112018e7-aafc-4b71-a513-4d9cddbdad83" variableName="name"/>
+		<set-payload value="#[vars.name]" doc:name="Set Payload" doc:id="6db050b6-4931-4269-9c66-7f5bd03aa647" />
+	</flow>
+</mule>
