@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="get_userlist" doc:id="3aefa9aa-dc3b-494e-9d29-36888509f8d6" >
-		<set-variable value="Shlok" doc:name="Set Variable" doc:id="4533cee4-337c-4366-9449-791532dde3ad" variableName="name"/>
-		<set-payload value="#[vars.name]" doc:name="Set Payload" doc:id="5db97372-6429-48ab-b51a-de2986b440ad" />
+		<db:select doc:name="Select" doc:id="75ccc537-dc43-4eb4-97e2-6fe664b627bf" config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM userInfo
+]]></db:sql>
+		</db:select>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="5db97372-6429-48ab-b51a-de2986b440ad" />
+		<ee:transform doc:name="Transform Message" doc:id="7b339efc-c69a-42f2-b3a4-c5f47286b2be">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 </mule>
