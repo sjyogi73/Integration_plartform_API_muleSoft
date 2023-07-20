@@ -1,6 +1,6 @@
 db:
-	host:"bgdmg7mcv6idyhzwxuno-mysql.services.clever-cloud.com"
-	port:"3306"
-	user:"uatnjku93r27whov"
-	password:"R0a6pbvYaV12vPJCz4Mh"
-	name:"bgdmg7mcv6idyhzwxuno"
+ host:"bgdmg7mcv6idyhzwxuno-mysql.services.clever-cloud.com"
+ port:"3306"
+ user:"uatnjku93r27whov"
+ password:"R0a6pbvYaV12vPJCz4Mh"
+ name:"bgdmg7mcv6idyhzwxuno"
